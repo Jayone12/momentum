@@ -32,20 +32,19 @@ function checked(event) {
 function paintToDo(newToDo) {
   const li = document.createElement("li");
   li.id = newToDo.id;
+  const div = document.createElement("div");
+  const p = document.createElement("p");
   const input = document.createElement("input");
   input.name = newToDo.id;
   input.type = "checkbox";
-  li.prepend(input);
   input.addEventListener("click", checked);
-  const span = document.createElement("span");
-  span.innerText = newToDo.text;
+  p.innerText = newToDo.text;
   const button = document.createElement("button");
-  const i = document.createElement("i");
-  button.appendChild(i);
-  i.classList.add("fas", "fa-trash-alt");
-  // button.innerText = "❌";
+  button.classList.add("fas", "fa-trash-alt");
   button.addEventListener("click", deleteToDo);
-  li.appendChild(span);
+  li.appendChild(div);
+  div.prepend(input);
+  div.appendChild(p);
   li.appendChild(button);
   toDoList.appendChild(li);
 }
