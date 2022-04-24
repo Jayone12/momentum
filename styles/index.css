@@ -1,5 +1,6 @@
 * {
   border: 0;
+  box-sizing: border-box;
   background-color: initial;
 }
 
@@ -122,6 +123,16 @@
 .main-menu > ul > li > .todo-list-container {
   margin-top: 10px;
 }
+.main-menu > ul > li > .todo-list-container.active {
+  display: block;
+}
+
+.main-menu > ul > li > .todo-list-container > #todo-form > input {
+  border: 1px solid #dedede;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
 .main-menu > ul > li > .todo-list-container > #todo-form > input {
   width: 100%;
 }
@@ -145,6 +156,19 @@
   cursor: pointer;
 }
 
+.main-menu > #weather {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translate(-50%, 0);
+  font-size: 18px;
+  text-align: center;
+}
+
+.main-menu > #weather > div:last-child {
+  margin-top: 15px;
+}
+
 .infomation {
   position: absolute;
   left: 50%;
@@ -161,6 +185,15 @@
 
 .infomation > #quote {
   margin-top: 20px;
+}
+
+.infomation > #quote > div:first-child {
+  line-height: 1.5;
+}
+
+.infomation > #quote > div:last-child {
+  margin-top: 20px;
+  font-style: italic;
 }
 
 .hidden {
