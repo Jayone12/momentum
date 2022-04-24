@@ -109,6 +109,7 @@
 .main-menu > ul > li > .menu-title {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .main-menu > ul > li > .menu-title > button {
   color: #666;
