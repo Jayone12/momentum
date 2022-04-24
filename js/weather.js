@@ -8,14 +8,14 @@ function onGeoOk(position) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      const weather = document.querySelector("#weather span:first-child");
-      const city = document.querySelector("#weather span:last-child");
+      const city = document.querySelector("#weather div:first-child");
+      const weather = document.querySelector("#weather div:last-child");
       city.innerText = data.name;
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp} `;
+      weather.innerText = `${data.weather[0].description} / ${data.main.temp} `;
     });
 }
 function onGeoError() {
-  alert("can't find you. No weather for you.");
+  alert("위치 공유를 해주세요.");
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
