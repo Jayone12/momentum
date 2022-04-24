@@ -15,6 +15,13 @@
   background-size: cover;
 }
 
+.menu-btn {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 20px 0 0 20px;
+}
+
 .login-modal {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -69,7 +76,12 @@
   position: absolute;
   background-color: #fff;
   top: 0;
-  left: 0;
+  left: -300px;
+  transition: all 0.3s;
+}
+
+.main-menu.active {
+  left: 0px;
 }
 
 .main-menu > .close-btn {
@@ -110,10 +122,45 @@
 .main-menu > ul > li > .todo-list-container {
   margin-top: 10px;
 }
+.main-menu > ul > li > .todo-list-container > #todo-form > input {
+  width: 100%;
+}
 
 .main-menu > ul > li > .todo-list-container > #todo-list > li {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 0;
+}
+
+.main-menu > ul > li > .todo-list-container > #todo-list > li > div {
+  display: flex;
+}
+
+.main-menu > ul > li > .todo-list-container > #todo-list > li > div > p {
+  padding: 0 10px;
+}
+
+.main-menu > ul > li > .todo-list-container > #todo-list > li > button {
+  cursor: pointer;
+}
+
+.infomation {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.infomation > #clock {
+  font-size: 68px;
+}
+
+.infomation > #quote {
+  margin-top: 20px;
 }
 
 .hidden {

@@ -23,7 +23,11 @@
   </head>
   <body>
     <div class="wrap">
-      <h2 id="clock"></h2>
+      <button class="fas fa-bars menu-btn"></button>
+      <div class="infomation">
+        <h2 id="clock"></h2>
+        <div id="quote"><span></span><span></span></div>
+      </div>
       <div class="login-modal hidden">
         <form id="login-form">
           <h2 class="greetings">WELCOME! <br />What is your name?</h2>
@@ -47,7 +51,7 @@
           <li>
             <div class="menu-title">
               <span>Todo-list <i class="fas fa-angle-down"></i></span>
-              <button><i class="fas fa-cog"></i></button>
+              <button class="fas fa-cog close-btn" />
             </div>
             <div class="todo-list-container">
               <form id="todo-form">
@@ -77,10 +81,10 @@
           </li>
         </ul>
       </nav>
-
-      <h1 class="hidden" id="greeting"></h1>
-      <div id="quote"><span></span><span></span></div>
-      <div id="weather"><span></span><span></span></div>
+      <div id="weather">
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <script src="js/clock.js"></script>
     <script src="js/greetings.js"></script>
@@ -88,5 +92,6 @@
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/sideMenu.js"></script>
   </body>
 </html>
