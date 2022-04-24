@@ -1,0 +1,121 @@
+* {
+  border: 0;
+  background-color: initial;
+}
+
+*:not(i) {
+  font-family: "Roboto Mono", monospace;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.login-modal > #login-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  width: 500px;
+  text-align: center;
+  line-height: 1.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -135px;
+}
+
+.login-modal > #login-form > .greetings {
+  font-size: 32px;
+}
+
+.login-modal > #login-form > .input-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #c8c8c8;
+  width: 200px;
+  margin: 40px auto;
+  padding: 0 5px;
+}
+
+.login-modal > #login-form > .input-container > .input-name {
+  border: 0;
+  padding: 5px;
+}
+
+.login-modal > #login-form > .input-container > .login-btn {
+  border: initial;
+  color: #787878;
+  background-color: initial;
+}
+
+.main-menu {
+  width: 300px;
+  height: 100vh;
+  position: absolute;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+}
+
+.main-menu > .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.main-menu > .user-name {
+  margin-top: 40px;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.main-menu > ul {
+  padding: 20px;
+}
+
+.main-menu > ul > li {
+  padding: 10px 0;
+}
+.main-menu > ul > li > .menu-title {
+  display: flex;
+  justify-content: space-between;
+}
+.main-menu > ul > li > .menu-title > button {
+  color: #666;
+  opacity: 0;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.main-menu > ul > li > .menu-title:hover > button {
+  opacity: 1;
+}
+
+.main-menu > ul > li > .todo-list-container {
+  margin-top: 10px;
+}
+
+.main-menu > ul > li > .todo-list-container > #todo-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
