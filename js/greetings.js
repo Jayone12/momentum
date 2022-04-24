@@ -24,8 +24,7 @@ function paintGreetings(username) {
   } else if (getHour > 17) {
     greeting.innerText = `${greetingArr[2]}  ${username}`;
   }
-  greeting.classList.remove(HIDDEN_CLASSNAME);
-  menuUserName.innerText = `${username}님 안녕하세요.`;
+  menuUserName.innerText = `Welcome to ${username}!`;
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
