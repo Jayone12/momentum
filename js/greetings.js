@@ -16,7 +16,6 @@ function onLoginSubmit(event) {
 function paintGreetings(username) {
   const greetingArr = ["Good morning!", "Good afternoon!", "Good evening!"];
   const getHour = new Date().getHours();
-  console.log(getHour < 12);
   if (getHour < 12) {
     menuUserName.innerText = `${greetingArr[0]} ${username}`;
   } else if (getHour < 17) {

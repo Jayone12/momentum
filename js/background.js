@@ -1,5 +1,4 @@
 const wrap = document.querySelector(".wrap");
-const getHour = new Date().getHours();
 
 const bgImagesObj = {
   morning: ["bg_morning_1", "bg_morning_2", "bg_morning_3"],
@@ -26,10 +25,16 @@ const eveningImage = randomImage(
   bgImagesObj.evening.length
 );
 
-if (getHour < 12) {
-  wrap.style.backgroundImage = `url(images/${morningImage}.jpg)`;
-} else if (getHour < 17) {
-  wrap.style.backgroundImage = `url(images/${afternoonImage}.jpg)`;
-} else if (getHour < 24) {
-  wrap.style.backgroundImage = `url(images/${eveningImage}.jpg)`;
+export function backgroundRender() {
+  const getHour = new Date().getHours();
+
+  if (getHour < 12) {
+    wrap.style.backgroundImage = `url(images/${morningImage}.jpg)`;
+  } else if (getHour < 17) {
+    wrap.style.backgroundImage = `url(images/${afternoonImage}.jpg)`;
+  } else if (getHour < 24) {
+    wrap.style.backgroundImage = `url(images/${eveningImage}.jpg)`;
+  }
 }
+
+backgroundRender();
