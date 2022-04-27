@@ -26,10 +26,10 @@ const eveningImage = randomImage(
   bgImagesObj.evening.length
 );
 
-if (0 < getHour < 12) {
+if (getHour < 12) {
   wrap.style.backgroundImage = `url(images/${morningImage}.jpg)`;
-} else if (12 < getHour < 17) {
+} else if (getHour < 17) {
   wrap.style.backgroundImage = `url(images/${afternoonImage}.jpg)`;
-} else if (17 < getHour < 24) {
+} else if (getHour < 24) {
   wrap.style.backgroundImage = `url(images/${eveningImage}.jpg)`;
 }
