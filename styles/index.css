@@ -111,49 +111,56 @@
   justify-content: space-between;
   cursor: pointer;
 }
-.main-menu > ul > li > .menu-title > button {
+.main-menu > ul > li > .menu-title > .wiget-btn {
   color: #666;
   opacity: 0;
   transition: all 0.3s;
   cursor: pointer;
 }
-.main-menu > ul > li > .menu-title:hover > button {
+.main-menu > ul > li > .menu-title:hover > .wiget-btn {
   opacity: 1;
 }
 
-.main-menu > ul > li > .todo-list-container {
+.main-menu > ul > li > #memo-form > .btns {
+  display: flex;
+  justify-content: end;
+  padding: 10px 0;
+}
+
+.main-menu > ul > li > .list-container {
   margin-top: 10px;
 }
-.main-menu > ul > li > .todo-list-container.active {
+.main-menu > ul > li > .list-container.active {
   display: block;
 }
 
-.main-menu > ul > li > .todo-list-container > #todo-form > input {
+.main-menu > ul > li > .list-container > #todo-form > input {
   border: 1px solid #dedede;
   border-radius: 20px;
   padding: 5px 10px;
 }
 
-.main-menu > ul > li > .todo-list-container > #todo-form > input {
+.main-menu > ul > li > .list-container > #todo-form > input {
   width: 100%;
 }
 
-.main-menu > ul > li > .todo-list-container > #todo-list > li {
+.main-menu > ul > li > .list-container > #todo-list > li {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 10px;
   padding: 5px 0;
 }
 
-.main-menu > ul > li > .todo-list-container > #todo-list > li > div {
+.main-menu > ul > li > .list-container > #todo-list > li > div {
   display: flex;
 }
 
-.main-menu > ul > li > .todo-list-container > #todo-list > li > div > p {
+.main-menu > ul > li > .list-container > #todo-list > li > div > p {
   padding: 0 10px;
 }
 
-.main-menu > ul > li > .todo-list-container > #todo-list > li > button {
+.main-menu > ul > li > .list-container > #todo-list > li > button {
   cursor: pointer;
 }
 
@@ -195,6 +202,15 @@
 .infomation > #quote > div:last-child {
   margin-top: 20px;
   font-style: italic;
+}
+
+#meno-input {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .hidden {

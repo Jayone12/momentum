@@ -46,16 +46,16 @@
           </div>
         </form>
       </div>
-      <nav class="main-menu">
+      <nav class="main-menu active">
         <button class="close-btn"><i class="fas fa-times"></i></button>
         <p class="user-name"></p>
         <ul>
           <li>
             <div class="menu-title">
               <span>Todo-list <i class="fas fa-angle-right"></i></span>
-              <button class="fas fa-cog close-btn" />
+              <button class="fas fa-cog wiget-btn"></button>
             </div>
-            <div class="todo-list-container hidden">
+            <div class="list-container hidden">
               <form id="todo-form">
                 <input
                   type="text"
@@ -68,17 +68,45 @@
           </li>
           <li>
             <div class="menu-title">
-              memo <button><i class="fas fa-cog"></i></button>
+              <span>memo <i class="fas fa-angle-right"></i></span
+              ><button class="fas fa-cog wiget-btn"></button>
+            </div>
+            <div class="list-container hidden">
+              <textarea
+                id="meno-input"
+                placeholder="메모를 입력하세요."
+              ></textarea>
             </div>
           </li>
           <li>
             <div class="menu-title">
-              alram <button><i class="fas fa-cog"></i></button>
+              alram <button class="fas fa-cog wiget-btn"></button>
             </div>
+            <form id="alram-form">
+              <input
+                name="hour"
+                type="number"
+                min="0"
+                max="24"
+                maxlength="2"
+                required
+              />
+              <label for="hour">시</label>
+              <input
+                name="hour"
+                type="number"
+                min="0"
+                max="60"
+                maxlength="2"
+                required
+              />
+              <label for="hour">분</label>
+              <button>추가</button>
+            </form>
           </li>
           <li>
             <div class="menu-title">
-              calculator <button><i class="fas fa-cog"></i></button>
+              calculator <button class="fas fa-cog wiget-btn"></button>
             </div>
           </li>
         </ul>
@@ -96,5 +124,7 @@
     <script type="module" src="js/background.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/sidemenu.js"></script>
+    <script src="js/memo.js"></script>
+    <script src="js/alram.js"></script>
   </body>
 </html>
