@@ -46,7 +46,7 @@
           </div>
         </form>
       </div>
-      <nav class="main-menu">
+      <nav class="main-menu active">
         <button class="close-btn"><i class="fas fa-times"></i></button>
         <p class="user-name"></p>
         <ul>
@@ -80,29 +80,41 @@
           </li>
           <li>
             <div class="menu-title">
-              alram <button class="fas fa-cog wiget-btn"></button>
+              <span>alram <i class="fas fa-angle-right"></i></span>
+              <button class="fas fa-cog wiget-btn"></button>
             </div>
             <form id="alram-form">
-              <input
-                name="hour"
-                type="number"
-                min="0"
-                max="24"
-                maxlength="2"
-                required
-              />
-              <label for="hour">시</label>
-              <input
-                name="hour"
-                type="number"
-                min="0"
-                max="60"
-                maxlength="2"
-                required
-              />
-              <label for="hour">분</label>
-              <button>추가</button>
+              <div class="alram-input-container">
+                <input
+                  name="hour"
+                  id="hour"
+                  type="number"
+                  min="1"
+                  max="24"
+                  maxlength="2"
+                  required
+                />
+                <label for="hour">시</label>
+                <input
+                  name="minute"
+                  id="minute"
+                  type="number"
+                  min="0"
+                  max="59"
+                  maxlength="2"
+                  required
+                />
+                <label for="minute">분</label>
+                <input
+                  id="alram-text"
+                  type="text"
+                  placeholder="내용을 입력하세요."
+                  required
+                />
+              </div>
+              <button>등록</button>
             </form>
+            <ul class="alram-lists"></ul>
           </li>
           <li>
             <div class="menu-title">
@@ -117,14 +129,15 @@
       </nav>
     </div>
     <script type="module" src="js/common.js"></script>
+    <script type="module" src="js/localStorage.js"></script>
     <script type="module" src="js/clock.js"></script>
     <script type="module" src="js/greetings.js"></script>
     <script src="js/quotes.js"></script>
-    <script src="js/todo.js"></script>
+    <script type="module" src="js/todo.js"></script>
     <script type="module" src="js/background.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/sidemenu.js"></script>
     <script src="js/memo.js"></script>
-    <script src="js/alram.js"></script>
+    <script type="module" src="js/alram.js"></script>
   </body>
 </html>
