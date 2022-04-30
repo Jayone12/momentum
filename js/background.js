@@ -36,5 +36,3 @@ export function backgroundRender() {
     wrap.style.backgroundImage = `url(images/${eveningImage}.jpg)`;
   }
 }
-
-backgroundRender();

@@ -1,3 +1,5 @@
+import { saveLocalStorage, getLocalStorage } from "./localStorage.js";
+
 const alramForm = document.getElementById("alram-form");
 const alramHour = alramForm.querySelector("#hour");
 const alramMinute = alramForm.querySelector("#minute");
@@ -13,10 +15,9 @@ function saveToAlram() {
 
 function deleteAlram(event) {
   const li = event.target.parentElement;
-  console.log(li.id);
   li.remove();
   alrams = alrams.filter((alram) => alram.id !== parseInt(li.id));
-  saveToAlram();
+  saveLocalStorage(ALRAM_KEY, alrams);
 }
 
 function paintAlram(newAlramObj) {
@@ -35,8 +36,11 @@ function paintAlram(newAlramObj) {
 function alramSubmit(event) {
   event.preventDefault();
   const newAlramHour = alramHour.value;
+  alramHour.value = "";
   const newAlramMinute = alramMinute.value;
+  alramMinute.value = "";
   const newAlramText = alramText.value;
+  alramText.value = "";
   const alramObj = {
     id: Date.now(),
     hour: newAlramHour.padStart(2, "0"),
@@ -45,25 +49,25 @@ function alramSubmit(event) {
   };
   alrams.push(alramObj);
   paintAlram(alramObj);
-  saveToAlram();
+  saveLocalStorage(ALRAM_KEY, alrams);
 }
 
 alramForm.addEventListener("submit", alramSubmit);
 
-const savedAlram = localStorage.getItem(ALRAM_KEY);
+const savedAlram = getLocalStorage(ALRAM_KEY);
+const parseArlam = JSON.parse(savedAlram);
 
 if (savedAlram !== null) {
-  const parseArlam = JSON.parse(savedAlram);
   alrams = parseArlam;
   parseArlam.forEach(paintAlram);
   alramClock(parseArlam);
 }
 
-function showNotification(data, hour, minutes) {
+function showNotification(data, hour, minutes, seconds) {
   data.forEach((v) => {
     const arlamHour = v.hour;
-    const arlamMinute = v.minute;
-    if (arlamHour === hour && arlamMinute === minutes) {
+    const arlamMinutes = v.minute;
+    if (arlamHour === hour && arlamMinutes === minutes && seconds === "00") {
       const notification = new Notification(
         `${v.hour}시 ${v.minute}분 ${v.text}`,
         {
@@ -74,9 +78,12 @@ function showNotification(data, hour, minutes) {
   });
 }
 
-function alramClock(parseArlam) {
+async function alramClock() {
   const date = new Date();
   const hour = String(date.getHours()).padStart(2, 0);
   const minutes = String(date.getMinutes()).padStart(2, 0);
-  showNotification(parseArlam, hour, minutes);
+  const seconds = String(date.getSeconds()).padStart(2, 0);
+  showNotification(parseArlam, hour, minutes, seconds);
 }
+
+export { alramClock };
