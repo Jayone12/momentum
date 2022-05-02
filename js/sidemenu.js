@@ -15,7 +15,7 @@ function closeMenu() {
 
 function openMenuContent(event) {
   const current = event.path[2].children[1];
-  current.classList.toggle("active");
+  current.classList.toggle("hidden");
 }
 
 menuTitle.forEach((title) => {
