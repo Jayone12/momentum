@@ -1,4 +1,5 @@
 import { saveLocalStorage, getLocalStorage } from "./localStorage.js";
+import { nowDate } from "./clock.js";
 
 const alramForm = document.getElementById("alram-form");
 const alramHour = alramForm.querySelector("#hour");
@@ -35,6 +36,7 @@ function paintAlram(newAlramObj) {
 
 function alramSubmit(event) {
   event.preventDefault();
+  askNotificationPermission();
   const newAlramHour = alramHour.value;
   alramHour.value = "";
   const newAlramMinute = alramMinute.value;
@@ -54,6 +56,32 @@ function alramSubmit(event) {
 
 alramForm.addEventListener("submit", alramSubmit);
 
+function askNotificationPermission() {
+  if (Notification.permission !== "granted") {
+    alert("브라우저의 알람을 설정하세요 !");
+    Notification.requestPermission();
+  }
+}
+
+function showNotification(data, hour, minutes, seconds) {
+  data.forEach((v) => {
+    const notiTitle = `${v.hour}시 ${v.minute}분 ${v.text}`;
+    const notiBody = {
+      body: v.text,
+    };
+    const arlamHour = v.hour;
+    const arlamMinutes = v.minute;
+    if (arlamHour === hour && arlamMinutes === minutes && seconds === "00") {
+      const notification = new Notification(notiTitle, notiBody);
+    }
+  });
+}
+
+function alramClock() {
+  const { hour, minutes, seconds } = nowDate();
+  showNotification(parseArlam, hour, minutes, seconds);
+}
+
 const savedAlram = getLocalStorage(ALRAM_KEY);
 const parseArlam = JSON.parse(savedAlram);
 
@@ -61,29 +89,6 @@ if (savedAlram !== null) {
   alrams = parseArlam;
   parseArlam.forEach(paintAlram);
   alramClock(parseArlam);
-}
-
-function showNotification(data, hour, minutes, seconds) {
-  data.forEach((v) => {
-    const arlamHour = v.hour;
-    const arlamMinutes = v.minute;
-    if (arlamHour === hour && arlamMinutes === minutes && seconds === "00") {
-      const notification = new Notification(
-        `${v.hour}시 ${v.minute}분 ${v.text}`,
-        {
-          body: v.text,
-        }
-      );
-    }
-  });
-}
-
-async function alramClock() {
-  const date = new Date();
-  const hour = String(date.getHours()).padStart(2, 0);
-  const minutes = String(date.getMinutes()).padStart(2, 0);
-  const seconds = String(date.getSeconds()).padStart(2, 0);
-  showNotification(parseArlam, hour, minutes, seconds);
 }
 
 export { alramClock };
