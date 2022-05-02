@@ -1,8 +1,7 @@
 const sideMenu = document.querySelector(".main-menu");
 const menuBtn = document.querySelector(".menu-btn");
 const closeBtn = document.querySelector(".close-btn");
-const test = document.getElementsByClassName("menu-title");
-const menuTitle = document.querySelectorAll(".menu-title");
+const menuTitle = document.querySelectorAll(".menu-title span");
 const toDoListContiner = document.querySelector(".list-container");
 
 function openMenu() {
