@@ -5,7 +5,7 @@ const alramForm = document.getElementById("alram-form");
 const alramHour = alramForm.querySelector("#hour");
 const alramMinute = alramForm.querySelector("#minute");
 const alramText = alramForm.querySelector("#alram-text");
-const alramLists = document.querySelector(".alram-lists");
+const alramLists = document.querySelector("#alram-lists");
 
 let alrams = [];
 const ALRAM_KEY = "alrams";

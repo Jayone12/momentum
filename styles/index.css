@@ -149,7 +149,7 @@
   width: 100%;
 }
 
-.main-menu > ul > li > .list-container > #todo-list > li {
+.main-menu > ul > li > .list-container > .item-list > li {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -169,23 +169,35 @@
   cursor: pointer;
 }
 
-.main-menu > ul > li > #alram-form {
+.main-menu > ul > li > .list-container > #alram-form {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
 
-.main-menu > ul > li > #alram-form > .alram-input-container > input {
+.main-menu
+  > ul
+  > li
+  > .list-container
+  > #alram-form
+  > .alram-input-container
+  > input {
   border: 1px solid #dedede;
   border-radius: 5px;
 }
 
-.main-menu > ul > li > #alram-form > .alram-input-container > input:last-child {
+.main-menu
+  > ul
+  > li
+  > .list-container
+  > #alram-form
+  > .alram-input-container
+  > input:last-child {
   margin-top: 10px;
 }
 
-.main-menu > ul > li > #alram-form > button {
+.main-menu > ul > li > .list-container > #alram-form > button {
   width: 70px;
   height: 54px;
   border: 1px solid #dedede;

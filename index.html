@@ -46,7 +46,7 @@
           </div>
         </form>
       </div>
-      <nav class="main-menu active">
+      <nav class="main-menu">
         <button class="close-btn"><i class="fas fa-times"></i></button>
         <p class="user-name"></p>
         <ul>
@@ -63,7 +63,7 @@
                   required
                 />
               </form>
-              <ul id="todo-list"></ul>
+              <ul id="todo-list" class="item-list"></ul>
             </div>
           </li>
           <li>
@@ -83,42 +83,39 @@
               <span>alram <i class="fas fa-angle-right"></i></span>
               <button class="fas fa-cog wiget-btn"></button>
             </div>
-            <form id="alram-form">
-              <div class="alram-input-container">
-                <input
-                  name="hour"
-                  id="hour"
-                  type="number"
-                  min="1"
-                  max="24"
-                  maxlength="2"
-                  required
-                />
-                <label for="hour">시</label>
-                <input
-                  name="minute"
-                  id="minute"
-                  type="number"
-                  min="0"
-                  max="59"
-                  maxlength="2"
-                  required
-                />
-                <label for="minute">분</label>
-                <input
-                  id="alram-text"
-                  type="text"
-                  placeholder="내용을 입력하세요."
-                  required
-                />
-              </div>
-              <button>등록</button>
-            </form>
-            <ul class="alram-lists"></ul>
-          </li>
-          <li>
-            <div class="menu-title">
-              calculator <button class="fas fa-cog wiget-btn"></button>
+            <div class="list-container hidden">
+              <form id="alram-form">
+                <div class="alram-input-container">
+                  <input
+                    name="hour"
+                    id="hour"
+                    type="number"
+                    min="1"
+                    max="24"
+                    maxlength="2"
+                    required
+                  />
+                  <label for="hour">시</label>
+                  <input
+                    name="minute"
+                    id="minute"
+                    type="number"
+                    min="0"
+                    max="59"
+                    maxlength="2"
+                    required
+                  />
+                  <label for="minute">분</label>
+                  <input
+                    id="alram-text"
+                    type="text"
+                    placeholder="내용을 입력하세요."
+                    required
+                  />
+                </div>
+                <button>등록</button>
+              </form>
+              <ul id="alram-lists" class="item-list"></ul>
             </div>
           </li>
         </ul>
