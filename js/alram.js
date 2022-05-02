@@ -10,10 +10,6 @@ const alramLists = document.querySelector("#alram-lists");
 let alrams = [];
 const ALRAM_KEY = "alrams";
 
-function saveToAlram() {
-  localStorage.setItem(ALRAM_KEY, JSON.stringify(alrams));
-}
-
 function deleteAlram(event) {
   const li = event.target.parentElement;
   li.remove();
@@ -79,7 +75,9 @@ function showNotification(data, hour, minutes, seconds) {
 
 function alramClock() {
   const { hour, minutes, seconds } = nowDate();
-  showNotification(parseArlam, hour, minutes, seconds);
+  if (savedAlram !== null) {
+    showNotification(parseArlam, hour, minutes, seconds);
+  }
 }
 
 const savedAlram = getLocalStorage(ALRAM_KEY);
