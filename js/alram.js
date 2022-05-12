@@ -1,14 +1,19 @@
 import { saveLocalStorage, getLocalStorage } from "./localStorage.js";
 import { nowDate } from "./clock.js";
+import { widgetRander } from "./widget.js";
 
 const alramForm = document.getElementById("alram-form");
 const alramHour = alramForm.querySelector("#hour");
 const alramMinute = alramForm.querySelector("#minute");
 const alramText = alramForm.querySelector("#alram-text");
 const alramLists = document.querySelector("#alram-lists");
+const widetLists = document.querySelector(".alram-widget > ul");
+const alramWidget = document.querySelector(".alram-widget");
+const widgetBtn = document.querySelector(".menu-alram > .widget-btn");
 
 let alrams = [];
 const ALRAM_KEY = "alrams";
+const WIDGET_KEY = "widget";
 
 function deleteAlram(event) {
   const li = event.target.parentElement;
@@ -48,6 +53,7 @@ function alramSubmit(event) {
   alrams.push(alramObj);
   paintAlram(alramObj);
   saveLocalStorage(ALRAM_KEY, alrams);
+  widgetRander(ALRAM_KEY, widetLists);
 }
 
 alramForm.addEventListener("submit", alramSubmit);
@@ -73,7 +79,7 @@ function showNotification(data, hour, minutes, seconds) {
   });
 }
 
-function alramClock() {
+async function alramClock() {
   const { hour, minutes, seconds } = nowDate();
   if (savedAlram !== null) {
     showNotification(parseArlam, hour, minutes, seconds);
@@ -87,6 +93,26 @@ if (savedAlram !== null) {
   alrams = parseArlam;
   parseArlam.forEach(paintAlram);
   alramClock(parseArlam);
+  widgetRander(ALRAM_KEY, widetLists);
+}
+
+widgetBtn.addEventListener("click", () => {
+  const getWidget = JSON.parse(getLocalStorage(WIDGET_KEY));
+  getWidget[2].check = !getWidget[2].check;
+  if (getWidget[2].check) {
+    alramWidget.classList.remove("hidden");
+  } else {
+    alramWidget.classList.add("hidden");
+  }
+  saveLocalStorage(WIDGET_KEY, getWidget);
+});
+
+const getWidget = JSON.parse(getLocalStorage(WIDGET_KEY));
+
+if (getWidget[2].check) {
+  alramWidget.classList.remove("hidden");
+} else {
+  alramWidget.classList.add("hidden");
 }
 
 export { alramClock };
