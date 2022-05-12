@@ -51,9 +51,9 @@
         <p class="user-name"></p>
         <ul>
           <li>
-            <div class="menu-title">
-              <span>Todo-list <i class="fas fa-angle-right"></i></span>
-              <button class="fas fa-cog wiget-btn"></button>
+            <div class="menu-title menu-todo">
+              <span>Todo-list<i class="fas fa-angle-right"></i></span>
+              <button class="fas fa-cog widget-btn"></button>
             </div>
             <div class="list-container hidden">
               <form id="todo-form">
@@ -67,9 +67,9 @@
             </div>
           </li>
           <li>
-            <div class="menu-title">
-              <span>memo <i class="fas fa-angle-right"></i></span
-              ><button class="fas fa-cog wiget-btn"></button>
+            <div class="menu-title menu-memo">
+              <span>Memo<i class="fas fa-angle-right"></i></span
+              ><button class="fas fa-cog widget-btn"></button>
             </div>
             <div class="list-container hidden">
               <textarea
@@ -79,9 +79,9 @@
             </div>
           </li>
           <li>
-            <div class="menu-title">
-              <span>alram <i class="fas fa-angle-right"></i></span>
-              <button class="fas fa-cog wiget-btn"></button>
+            <div class="menu-title menu-alram">
+              <span>Alram<i class="fas fa-angle-right"></i></span>
+              <button class="fas fa-cog widget-btn"></button>
             </div>
             <div class="list-container hidden">
               <form id="alram-form">
@@ -91,7 +91,7 @@
                     id="hour"
                     type="number"
                     min="1"
-                    max="24"
+                    max="23"
                     maxlength="2"
                     required
                   />
@@ -124,6 +124,20 @@
           <div></div>
         </div>
       </nav>
+      <ul class="widget-container">
+        <li class="todo-widget hidden">
+          <div class="widget-title">Todo List</div>
+          <ul></ul>
+        </li>
+        <li class="memo-widget hidden">
+          <div class="widget-title">Memo</div>
+          <ul></ul>
+        </li>
+        <li class="alram-widget hidden">
+          <div class="widget-title">alram</div>
+          <ul></ul>
+        </li>
+      </ul>
     </div>
     <script type="module" src="js/common.js"></script>
     <script type="module" src="js/localStorage.js"></script>
@@ -134,7 +148,8 @@
     <script type="module" src="js/background.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/sidemenu.js"></script>
-    <script src="js/memo.js"></script>
+    <script type="module" src="js/memo.js"></script>
     <script type="module" src="js/alram.js"></script>
+    <script type="module" src="js/widget.js"></script>
   </body>
 </html>
