@@ -102,9 +102,8 @@ if (getToDos !== null) {
   widgetRander(TODOS_KEY, widetLists);
 }
 
-const getWidget = JSON.parse(getLocalStorage(WIDGET_KEY));
-
 widgetBtn.addEventListener("click", () => {
+  const getWidget = JSON.parse(getLocalStorage(WIDGET_KEY));
   getWidget[0].check = !getWidget[0].check;
   if (getWidget[0].check) {
     todoWidget.classList.remove("hidden");
@@ -113,6 +112,8 @@ widgetBtn.addEventListener("click", () => {
   }
   saveLocalStorage(WIDGET_KEY, getWidget);
 });
+
+const getWidget = JSON.parse(getLocalStorage(WIDGET_KEY));
 
 if (getWidget[0].check) {
   todoWidget.classList.remove("hidden");
